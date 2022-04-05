@@ -1,0 +1,52 @@
+<!-- Inserisci in una pagina web le immagini di 6 prodotti di largo consumo. 
+Quando l'utente passa con il mouse sopra un'immagine, vengono mostrati il nome ed il prezzo del prodotto. 
+Effettuare il controllo input. -->
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    	<meta charset="UTF-8">
+    	<title>Immagini prodotti</title>
+</head>
+<script>
+	function avviso(numFoto){
+        	var idImmagine = "img" + numFoto;
+        	switch(numFoto){
+            		case 1:
+                		document.getElementById(idImmagine).title = "Pane; Euro:3";
+            		break;
+
+            		case 2:
+                		document.getElementById(idImmagine).title = "Pasta; Euro:2";
+            		break;
+
+            		case 3:
+                		document.getElementById(idImmagine).title = "Pesce; Euro:15";
+            		break;
+
+            		case 4:
+                		document.getElementById(idImmagine).title = "Carne; Euro:10";
+            		break;
+
+            		case 5:
+                		document.getElementById(idImmagine).title = "Insalata; Euro:1";
+            		break;
+
+			case 6:
+				document.getElementById(idImmagine).title = "Frutta; Euro:4";
+			break;
+        	}
+       }
+
+</script>
+<body>
+    	<center><h3>Immagini</h3></center>
+    	<p id="out"></p>
+    	<img src="pane.jpg" alt="Pane Euro 3" height="150px" widht="150px" onmouseover="avviso(1)" id="img1">
+    	<img src="pasta.jpg" alt="Pasta Euro 2" height="150px" widht="150px"  onmouseover="avviso(2)" id="img2">
+    	<img src="pesce.jpg"  alt="Pesce Euro 15" height="150px" widht="150px" onmouseover="avviso(3)" id="img3">
+    	<img src="carne.jpg" alt="Carne Euro 10" height="150px" widht="150px" onmouseover="avviso(4)" id="img4">
+    	<img src="insalata.jpg" alt="Insalata Euro 1"  height="150px" widht="150px" onmouseover="avviso(5)" id="img5">
+	<img src="frutta.jpg" alt="Frutta Euro 4" height="150px" widht="150px" onmouseover="avviso(6)" id="img6">
+</body>
+</html>

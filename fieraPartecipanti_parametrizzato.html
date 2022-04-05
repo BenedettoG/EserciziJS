@@ -1,0 +1,92 @@
+<!--Costruire una pagina html con l'elenco dei partecipanti ad una fiera. In fase di esecuzione prevedere 
+l'inserimento di : il numero dei partecipanti, I nominativi e la loro età. 
+Al termine dell'inserimento il software deve dare la possibilità di calcolare:l'età media,
+il numero dei minorenni ed il numero degli ultra sessantacinquenni. Effettuare il controllo input.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fiera Partecipanti 2.0</title>
+
+    <script type="text/Javascript">
+        function conta()
+        {
+            var dim=document.forms["strumenti"]["txtquanti"].value;
+
+            for(i=0; i<dim; i++)
+            {
+                testo="nome del partecipante " + (i+1) + " ";
+                var formNumeri=document.getElementById("numeri");
+                var elementoA=document.createElement("A");
+                var elementoB=document.createTextNode(testo);
+                var elementoC=document.createElement("INPUT");
+                formNumeri.appendChild(elementoA);
+                elementoA.appendChild(elementoB);
+                elementoA.appendChild(elementoC);
+                elementoC.type="text";
+
+                testo="eta del partecipante" + (i+1) + " ";
+                var formNumeri=document.getElementById("numeri");
+                var elementoD=document.createElement("D");
+                var elementoE=document.createTextNode(testo);
+                var elementoF=document.createElement("INPUT");
+                formNumeri.appendChild(elementoD);
+                elementoD.appendChild(elementoE);
+                elementoD.appendChild(elementoF);
+                elementoF.type="text";
+                elementoF.name="txteta"+i;
+            }
+        }
+
+        function calcola()
+        {
+            var personeEta = new Array();
+
+            var dim=document.forms["strumenti"]["txtquanti"].value;
+            var somma=0;
+            var min=0;
+            var ultra=0;
+
+            for(i=0; i<dim; i++)
+            {
+                personeEta[i]=parseInt(document.forms["numeri"]["txteta"+i].value);
+                somma+=parseInt(personeEta[i]);
+
+                if(isNaN(personeEta[i]))
+                {
+                    personeEta[i] = 0;
+                    alert("Attenzione dati inseriti non validi");
+                }
+
+                if(personeEta[i]<18)
+                {
+                    min++;
+
+                }    
+                    
+                if(personeEta[i]>65)
+                {
+                    ultra++;
+                }
+		   }
+            
+                var media = somma/dim;
+            
+                document.write("<p>media: " + media + "</p>");
+                document.write("<p>minorenni: " + min +"</p>");
+                document.write("<p>ultra 65: " + ultra + "</p>");
+        }
+    </script>
+</head>
+<body>
+    <form id="strumenti">
+        Inserire il numero dei partecipanti <input type="text" name="txtquanti">
+        <input type="button" value="conta" onclick="conta()">
+    </form>
+    <br>
+    <form id="numeri">
+        <input type="button" value="calcola" onclick="calcola()">
+    </form>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!--Costruire una pagina html con l'elenco di 10 partecipanti ad una fiera con I seguenti dati:nominativi ed età. 
+Al termine dell'inserimento il software deve dare la possibilità di calcolare:
+l'età media, il numero dei minorenni ed il numero degli ultra sessantacinquenni. 
+Effettuare il controllo input.-->
+
+<!DOCTYPE html>
+<head>
+        <meta charset="UTF-8">
+        <title>Partecipanti fiera</title>
+        <script type="text/javascript">
+            
+		function calcola()
+            	{
+                personeEta = new Array();
+                var somma=0;
+                var min=0;
+                var ultra=0;
+
+                for(i=0; i<10; i++)
+                {
+
+                    personeEta[i] = eval(document.getElementById(i).value)
+		       	if(isNaN(personeEta[i]))
+                    	{
+                        		personeEta[i] = 0;
+                        		alert("Fare attenzione dati non validi");
+                    	}
+
+                    		if(personeEta[i]<18)
+                   			{
+                        			min++;
+
+                    		}    
+                    
+                    		if(elencoEta[i]>65)
+                    		{
+                        			ultra++;
+                    		}
+
+					somma+=elencoEta[i];
+                		}
+					var media = somma/10;
+                			document.getElementById("Media").value = media;
+                
+                			document.getElementById("Minorenni").value = min;
+               
+                			document.getElementById("Ultra").value = ultra;
+            }
+
+        </script>
+</head>
+<body>
+    
+    		
+    		<center><h1>Elenco dei 10 partecipanti</h1></center>
+		<div>
+        
+		<h3>1° Partecipante</h3>
+        		Nome <input type="text">
+        		Età <input type="number" id="0">
+        	<h3>2° Partecipante</h3>
+        		Nome <input type="text">
+        		Età <input type="number" id="1">
+        	<h3>3° Partecipante</h3>
+        		Nome <input type="text">
+        		Età <input type="number" id="2">
+        	<h3>4° Partecipante</h3>
+        		Nome <input type="text">
+        		Età <input type="number" id="3">
+        	<h3>5° Partecipante</h3>
+        		Nome <input type="text">
+        		Età <input type="number" id="4">
+        	<h3>6° Partecipante</h3>
+        		Nome <input type="text">
+        		Età <input type="number" id="5">
+        	<h3>7° Partecipante</h3>
+        		Nome <input type="text">
+        		Età <input type="number" id="6">
+        	<h3>8° Partecipante</h3>
+        		Nome <input type="text">
+        		Età <input type="number" id="7">
+        	<h3>9° Partecipante</h3>
+        		Nome <input type="text">
+        		Età <input type="number" id="8">
+        	<h3>10° Partecipante</h3>
+        		Nome <input type="text">
+        		Età <input type="number" id="9">        
+    		</div>
+    			<br>
+    		<div>
+        	
+		<input type="button" onclick="calcola()" value="CALCOLA">
+        	<p>La media è <input type="text" id="Media" readonly></p>
+             <p>Minorenni sono <input type="text" id="Minorenni" readonly></p>
+             <p>Ultra sessantacinquenni sono <input type="text" id="Ultra" readonly></p>
+		
+		</div>
+</body>
+</html>
